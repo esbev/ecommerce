@@ -8,15 +8,14 @@ router.get('/', async (req, res) => {
     });
   
     if (!categoryData) {
-      res.status(404).json({ message: "Category not found."});
-      return;
+      return res.status(404).json({ message: "Category not found."});
     };
   
-    res.status(200).json(categoryData);
+    return res.status(200).json(categoryData);
     } catch (err) {
-      res.status(500).json(err);
+      console.log(err);
+      return res.status(500).json(err);
     }
-  
 });
 
 router.get('/:id', async (req, res) => {
@@ -26,47 +25,53 @@ router.get('/:id', async (req, res) => {
   });
 
   if (!categoryData) {
-    res.status(404).json({ message: "Category not found."});
-    return;
+    return res.status(404).json({ message: "Category not found."});
   };
 
-  res.status(200).json(categoryData);
+  return res.status(200).json(categoryData);
   } catch (err) {
-    res.status(500).json(err);
+    console.log(err);
+    return res.status(500).json(err);
   }
 });
 
 router.post('/', async (req, res) => {
   try {
     const categoryData = await Category.create(req.body);
-    res.status(200).json(categoryData);
+    return res.status(200).json("Created");
   } catch (err) {
-    res.status(500).json(err);
+    console.log(err);
+    return res.status(500).json("Create Error");
   }
 });
 
 router.put('/:id', async (req, res) => {
-  const category = await Category.findByPk(req.params.id);
-  category.update(req.body)
-  .then((updatedCategory) => {
-    res.json(updatedCategory);
-  })
-  .catch((err) => {
-    res.status(400).json(err);
-  });
-});
-
-router.delete('/:id', (req, res) => {
-  Category.destroy({
+  await Category.update(req.body, {
     where: {
       id: req.params.id,
     },
   })
   .then((updatedCategory) => {
-    res.json(updatedCategory);
+    return res.status(200).json("Updated.");
   })
   .catch((err) => {
-    res.status(400).json(err);
+    console.log(err);
+    return res.status(500).json("Update error.");
+  });
+});
+
+router.delete('/:id', async (req, res) => {
+  await Category.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+  .then((updatedCategory) => {
+    return res.status(200).json("Deleted.");
+  })
+  .catch((err) => {
+    console.log(err);
+    return res.status(500).json("Delete error.");
   });
 });
 

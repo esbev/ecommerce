@@ -4,7 +4,7 @@
 
 ## Description
 
-Finishes building the backend of an ecommerce app starter code.
+Allows the user to run CRUD operations on a database with products, categroies, and tags.
 
 ## Table of Contents
 - [Preview](#preview)
@@ -18,16 +18,21 @@ Finishes building the backend of an ecommerce app starter code.
 
 Demo
 
-![demo](./images-videos/project-demo.gif)
+![demo](./videos/project-demo.gif)
 
 ## Installation
 
     clone the repository: git clone git@github.com:esbev/ecommerce
-    Install express, mysql2, sequelize, and dotenv
+    Install express, mysql2, sequelize, and dotenv with
+        npm i
 
 ## Usage
 
-    Download and install Insomnia to test the CRUD requests
+
+    Download and install Insomnia to test the api routes
+
+    From your command line start your server with
+        npm start
 
 ## Credits
 
