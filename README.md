@@ -16,22 +16,25 @@ Allows the user to run CRUD operations on a database with products, categroies, 
 
 ## Preview
 
-Demo
+Project Demo
 
-![demo](./videos/project-demo.gif)
+https://drive.google.com/file/d/1xY7rpO_HpKPqVniWSZCj98_QSqjPri-J/view
 
 ## Installation
 
-    clone the repository: git clone git@github.com:esbev/ecommerce
-    Install express, mysql2, sequelize, and dotenv with
+clone the repository: git clone git@github.com:esbev/ecommerce
+
+Install express, mysql2, sequelize, and dotenv with
+        
         npm i
 
 ## Usage
 
 
-    Download and install Insomnia to test the api routes
+Download and install Insomnia to test the api routes
 
-    From your command line start your server with
+From your command line start your server with
+        
         npm start
 
 ## Credits
